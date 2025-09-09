@@ -3,6 +3,7 @@ import { CountryLayoutComponent } from './layouts/CountryLayout/CountryLayout.co
 import { ByCapitalPageComponent } from './pages/by-capital-page/by-capital-page.component';
 import { ByCountryPageComponent } from './pages/by-country-page/by-country-page.component';
 import { ByRegionPageComponent } from './pages/by-region-page/by-region-page.component';
+import { CountryPageComponent } from './pages/country-page/country-page.component';
 
 export const countyRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ export const countyRoutes: Routes = [
       {
         path: 'by-region',
         component: ByRegionPageComponent,
+      },
+      {
+        path: 'by/:code',
+        component: CountryPageComponent,
       },
       {
         path: '**',
