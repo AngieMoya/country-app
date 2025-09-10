@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { RESTCountry } from '../interfaces/rest-countries.interface';
 import { CountryMapper } from '../mappers/country.mapper';
-import { map, Observable, catchError, throwError } from 'rxjs';
+import { map, Observable, catchError, throwError, delay } from 'rxjs';
 import type { Country } from '../interfaces/country.interface';
 
 const API_URL = 'https://restcountries.com/v3.1';
@@ -24,7 +24,7 @@ export class CountryService {
         console.log('Error fetching', error);
 
         return throwError(
-          () => new Error(`No se pudo obtener paises con ese query: ${query}`)
+          () => new Error(`Could not get countries with that query: ${query}`)
         );
       })
     );
@@ -37,11 +37,12 @@ export class CountryService {
       map((restCountries) =>
         CountryMapper.mapRestCountryToCountryArrays(restCountries)
       ),
+      delay(2000),
       catchError((error) => {
         console.log('Error fetching', error);
 
         return throwError(
-          () => new Error(`No se pudo obtener paises con ese query: ${query}`)
+          () => new Error(`Could not get countries with that query: ${query}`)
         );
       })
     );
