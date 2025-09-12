@@ -51,7 +51,10 @@ export interface CoatOfArms {
 }
 
 export interface Currencies {
-  EUR: Eur;
+  [key: string]: {
+    name: string;
+    symbol: string;
+  };
 }
 
 export interface Eur {
@@ -85,7 +88,7 @@ export interface Idd {
 }
 
 export interface Languages {
-  est: string;
+  [key: string]: string;
 }
 
 export interface Maps {
