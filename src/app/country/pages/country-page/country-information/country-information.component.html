@@ -2,7 +2,7 @@
   <div class="flex items-center">
     <div class="avatar">
       <div class="w-24 rounded">
-        <img [src]="country().flagSvg" />
+        <img [src]="country().flagSvg" [alt]="country().name" />
       </div>
     </div>
     <h1 class="text-3xl p-4">{{ country().name }}</h1>
@@ -12,18 +12,5 @@
   <!-- -->
   <country-stat [country]="country()" />
   <!-- -->
-  <div class="p-4">
-    <div class="flex items-center">
-      <h2 class="text-xl text-primary">Region :</h2>
-      <span class="pl-2">{{ country().region }}</span>
-    </div>
-    <h2 class="text-xl text-primary">Sub region: {{ country().subregion }}</h2>
-    <h2 class="text-xl text-primary">Continent: {{ country().continent }}</h2>
-    <h2 class="text-xl text-primary">Capital: {{ country().capital }}</h2>
-    <h2 class="text-xl text-primary">Language:{{ country().languages }}</h2>
-    <h2 class="text-xl text-primary">Coin: {{ country().coin }}</h2>
-    <h2 class="text-xl text-primary">limits with: {{ country().limits }}</h2>
-  </div>
-
-  <!-- -->
+  <country-complementary-info [country]="country()" />
 </section>

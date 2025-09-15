@@ -17,7 +17,7 @@ export class CountryMapper {
     const countryLanguage = () => {
       let languages = '';
       for (const key in restCountry.languages) {
-        languages = languages + restCountry.languages[key];
+        languages = languages + restCountry.languages[key] + ' ';
       }
       return languages;
     };
@@ -30,7 +30,6 @@ export class CountryMapper {
       capital: restCountry.capital.join(','),
       population: restCountry.population,
       region: restCountry.region,
-      subregion: restCountry.subregion,
       continent: restCountry.continents.join(','),
       languages: countryLanguage(),
       coin: countryCurrencies(),
