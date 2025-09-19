@@ -27,14 +27,14 @@ export class CountryMapper {
       flag: restCountry.flag,
       flagSvg: restCountry.flags.svg,
       name: restCountry.name.common,
-      capital: restCountry.capital.join(','),
+      capital: restCountry.capital?.join(',') || '',
       population: restCountry.population,
       region: restCountry.region,
-      continent: restCountry.continents.join(','),
+      continent: restCountry.continents?.join(',') || '',
       languages: countryLanguage(),
       coin: countryCurrencies(),
       area: restCountry.area,
-      limits: restCountry.borders.join(', '),
+      limits: restCountry.borders?.join(', ') || '',
     };
   }
   static mapRestCountryToCountryArrays(

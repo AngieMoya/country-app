@@ -1,16 +1,19 @@
 <section class="mx-10">
-  <div class="flex items-center">
-    <div class="avatar">
-      <div class="w-24 rounded">
-        <img [src]="country().flagSvg" [alt]="country().name" />
-      </div>
-    </div>
-    <h1 class="text-3xl p-4">{{ country().name }}</h1>
-  </div>
+  <h1 class="text-4xl">{{ country().name }}</h1>
   <!-- -->
   <div class="divider"></div>
   <!-- -->
   <country-stat [country]="country()" />
   <!-- -->
+  <figure class="diff aspect-16/9" tabindex="0">
+    <div class="diff-item-1" role="img" tabindex="0">
+      <img [alt]="country().name" [src]="country().flagSvg" class="blur-md" />
+    </div>
+    <div class="diff-item-2" role="img">
+      <img [alt]="country().name" [src]="country().flagSvg" />
+    </div>
+    <div class="diff-resizer"></div>
+  </figure>
+  <!---->
   <country-complementary-info [country]="country()" />
 </section>
