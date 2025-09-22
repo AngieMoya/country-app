@@ -3,6 +3,7 @@ import {
   Component,
   effect,
   input,
+  linkedSignal,
   output,
   signal,
 } from '@angular/core';
@@ -15,10 +16,12 @@ import {
 })
 export class SearchInputComponent {
   placeholder = input('Search');
-  value = output<string>();
-  debounceTime = input(500);
+  debounceTime = input(1000);
+  initialValue = input<string>();
 
-  inputValue = signal<string>('');
+  value = output<string>();
+
+  inputValue = linkedSignal<string>(() => this.initialValue() ?? ''); //señal que debe ser inicializada linkedSignal
 
   debounceEffect = effect((onCleanup) => {
     const value = this.inputValue();
